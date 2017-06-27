@@ -3,7 +3,9 @@
 import sys
 import time
 import RPi.GPIO as GPIO
- 
+
+
+#time.sleep(10) 
 # Use BCM GPIO references
 # instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
@@ -45,7 +47,7 @@ else:
 if len(sys.argv)>2:
   maxCounter = int(sys.argv[2])
 else:
-  maxCounter = 100 # 2050 = environ 1/2 tour
+  maxCounter = 6000 #= environ 1/2 tour
 
 # sens de rotation
 if len(sys.argv)>3:
@@ -60,7 +62,7 @@ if rotate == 2 : StepDir = StepDir * -1
 
 # Start main loop
 while True:
-  if counter == maxCounter: break
+  #if counter == maxCounter: break
   print StepCounter,
   print Seq[StepCounter]
 
@@ -84,6 +86,7 @@ while True:
   counter = counter + 1
   # Wait before moving on
   time.sleep(WaitTime)
+  #time.sleep(1)
 
 # Couper le moteur
 for pin in range(0,4):

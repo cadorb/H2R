@@ -33,6 +33,7 @@ class Bienvenue(object):
     stepper.exposed = True
 
 cherrypy.quickstart(Bienvenue(), config ="conf.txt")
+#cherrypy.quickstart(Bienvenue(), "/")
 
 
 
